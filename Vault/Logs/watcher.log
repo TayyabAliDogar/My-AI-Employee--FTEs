@@ -1,0 +1,10 @@
+2026-03-16 00:55:29,604 - FileSystemWatcher - ERROR - Vault path does not exist: C:\Users\Laptop collection\Documents\GitHub\AI-Employee-Bronze\watchers\Vault
+2026-03-16 00:56:07,101 - FileSystemWatcher - INFO - FileSystemWatcher initialized
+2026-03-16 00:56:07,101 - FileSystemWatcher - INFO - Monitoring: C:\Users\Laptop collection\Documents\GitHub\AI-Employee-Bronze\Vault\Inbox
+2026-03-16 00:56:07,102 - FileSystemWatcher - INFO - Output to: C:\Users\Laptop collection\Documents\GitHub\AI-Employee-Bronze\Vault\Needs_Action
+2026-03-16 00:56:07,102 - FileSystemWatcher - INFO - Starting FileSystemWatcher...
+2026-03-16 00:56:07,103 - FileSystemWatcher - INFO - Check interval: 30 seconds
+2026-03-16 00:56:07,103 - FileSystemWatcher - INFO - Press Ctrl+C to stop
+2026-03-16 00:56:07,105 - FileSystemWatcher - INFO - New file detected: client_request.txt
+2026-03-16 00:56:07,108 - FileSystemWatcher - INFO - Created action file: DOCUMENT_client_request_2026-03-16_00-56-07.md
+2026-03-16 00:56:07,110 - FileSystemWatcher - INFO - Processed 1 new file(s)

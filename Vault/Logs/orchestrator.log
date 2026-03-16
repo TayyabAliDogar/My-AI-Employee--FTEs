@@ -1,0 +1,152 @@
+2026-03-16 01:51:53,863 - INFO - Orchestrator initialized
+2026-03-16 01:51:53,864 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 01:51:53,865 - INFO - Processing inbox file: sample_contract.md
+2026-03-16 01:51:53,869 - INFO - Created action file: ACTION_sample_contract_2026-03-16_01-51-53.md
+2026-03-16 01:51:53,870 - INFO - Processing inbox file: sample_invoice.md
+2026-03-16 01:51:53,873 - INFO - Created action file: ACTION_sample_invoice_2026-03-16_01-51-53.md
+2026-03-16 01:51:53,874 - INFO - Processing inbox file: test_file.txt
+2026-03-16 01:51:53,877 - INFO - Created action file: ACTION_test_file_2026-03-16_01-51-53.md
+2026-03-16 01:51:53,877 - INFO - Processed 3 inbox item(s)
+2026-03-16 01:51:53,880 - INFO - Current status: {'inbox': 3, 'needs_action': 5, 'pending_approval': 0, 'done': 3}
+2026-03-16 01:51:53,881 - INFO - Triggering Claude Code for task processing
+2026-03-16 01:51:53,890 - WARNING - Claude Code not available - manual processing required
+2026-03-16 01:51:53,896 - INFO - Dashboard updated
+2026-03-16 01:51:53,896 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 04:13:44,581 - INFO - Orchestrator initialized
+2026-03-16 04:13:44,581 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 04:13:44,582 - INFO - No files in inbox
+2026-03-16 04:13:44,582 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 2}
+2026-03-16 04:13:44,586 - INFO - Dashboard updated
+2026-03-16 04:13:44,586 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 05:27:55,508 - INFO - Orchestrator initialized
+2026-03-16 05:27:55,509 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 05:27:55,510 - INFO - Current status: {'inbox': 2, 'needs_action': 0, 'pending_approval': 2, 'done': 2}
+2026-03-16 05:27:55,513 - INFO - Dashboard updated
+2026-03-16 05:27:55,513 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 05:30:45,555 - INFO - Orchestrator initialized
+2026-03-16 05:30:45,556 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 05:30:45,556 - INFO - Processing inbox file: test_file.txt
+2026-03-16 05:30:45,558 - INFO - Created action file: ACTION_test_file_2026-03-16_05-30-45.md
+2026-03-16 05:30:45,558 - INFO - Processed 1 inbox item(s)
+2026-03-16 05:30:45,560 - INFO - Current status: {'inbox': 1, 'needs_action': 1, 'pending_approval': 2, 'done': 2}
+2026-03-16 05:30:45,562 - INFO - Triggering Claude Code for task processing
+2026-03-16 05:30:45,566 - WARNING - Claude Code not available - manual processing required
+2026-03-16 05:30:45,569 - INFO - Dashboard updated
+2026-03-16 05:30:45,569 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 05:41:27,384 - INFO - Orchestrator initialized
+2026-03-16 05:41:27,385 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 05:41:27,387 - INFO - Current status: {'inbox': 1, 'needs_action': 0, 'pending_approval': 2, 'done': 3}
+2026-03-16 05:41:27,390 - INFO - Dashboard updated
+2026-03-16 05:41:27,390 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 05:42:58,368 - INFO - Orchestrator initialized
+2026-03-16 05:42:58,369 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 05:42:58,369 - INFO - Processing inbox file: Faraz_Ghazal_Request.md
+2026-03-16 05:42:58,370 - INFO - Created action file: ACTION_Faraz_Ghazal_Request_2026-03-16_05-42-58.md
+2026-03-16 05:42:58,370 - INFO - Processed 1 inbox item(s)
+2026-03-16 05:42:58,372 - INFO - Current status: {'inbox': 1, 'needs_action': 3, 'pending_approval': 2, 'done': 3}
+2026-03-16 05:42:58,373 - INFO - Triggering Claude Code for task processing
+2026-03-16 05:42:58,377 - WARNING - Claude Code not available - manual processing required
+2026-03-16 05:42:58,381 - INFO - Dashboard updated
+2026-03-16 05:42:58,381 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 06:06:16,763 - INFO - Orchestrator initialized
+2026-03-16 06:06:16,765 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 06:06:16,766 - INFO - Processing inbox file: Faraz_Ghazal_Request.md
+2026-03-16 06:06:16,769 - INFO - Created action file: ACTION_Faraz_Ghazal_Request_2026-03-16_06-06-16.md
+2026-03-16 06:06:16,770 - INFO - Processed 1 inbox item(s)
+2026-03-16 06:06:16,773 - INFO - Current status: {'inbox': 1, 'needs_action': 4, 'pending_approval': 2, 'done': 3}
+2026-03-16 06:06:16,774 - INFO - Triggering Claude Code for task processing
+2026-03-16 06:06:16,781 - WARNING - Claude Code not available - manual processing required
+2026-03-16 06:06:16,787 - INFO - Dashboard updated
+2026-03-16 06:06:16,788 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 06:35:28,419 - INFO - Orchestrator initialized
+2026-03-16 06:35:28,420 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 06:35:28,421 - INFO - Current status: {'inbox': 1, 'needs_action': 0, 'pending_approval': 2, 'done': 5}
+2026-03-16 06:35:28,423 - INFO - Dashboard updated
+2026-03-16 06:35:28,424 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 06:36:54,847 - INFO - Orchestrator initialized
+2026-03-16 06:36:54,847 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 06:36:54,848 - INFO - Processing inbox file: PPC_Strategy_Task.md
+2026-03-16 06:36:54,849 - INFO - Created action file: ACTION_PPC_Strategy_Task_2026-03-16_06-36-54.md
+2026-03-16 06:36:54,850 - INFO - Processed 1 inbox item(s)
+2026-03-16 06:36:54,852 - INFO - Current status: {'inbox': 1, 'needs_action': 3, 'pending_approval': 2, 'done': 5}
+2026-03-16 06:36:54,852 - INFO - Triggering Claude Code for task processing
+2026-03-16 06:36:54,859 - WARNING - Claude Code not available - manual processing required
+2026-03-16 06:36:54,862 - INFO - Dashboard updated
+2026-03-16 06:36:54,863 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 06:47:18,681 - INFO - Orchestrator initialized
+2026-03-16 06:47:18,682 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 06:47:18,683 - INFO - No files in inbox
+2026-03-16 06:47:18,685 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 7}
+2026-03-16 06:47:18,688 - INFO - Dashboard updated
+2026-03-16 06:47:18,688 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 21:42:20,729 - INFO - Orchestrator initialized
+2026-03-16 21:42:20,730 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 21:42:20,732 - INFO - Current status: {'inbox': 1, 'needs_action': 0, 'pending_approval': 2, 'done': 7}
+2026-03-16 21:42:20,749 - INFO - Dashboard updated
+2026-03-16 21:42:20,749 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 21:45:05,433 - INFO - Orchestrator initialized
+2026-03-16 21:45:05,434 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 21:45:05,434 - INFO - Processing inbox file: Amazon_PPC_Campaign_Task.md
+2026-03-16 21:45:05,435 - INFO - Created action file: ACTION_Amazon_PPC_Campaign_Task_2026-03-16_21-45-05.md
+2026-03-16 21:45:05,435 - INFO - Processed 1 inbox item(s)
+2026-03-16 21:45:05,437 - INFO - Current status: {'inbox': 1, 'needs_action': 4, 'pending_approval': 2, 'done': 7}
+2026-03-16 21:45:05,437 - INFO - Triggering Claude Code for task processing
+2026-03-16 21:45:05,443 - WARNING - Claude Code not available - manual processing required
+2026-03-16 21:45:05,445 - INFO - Dashboard updated
+2026-03-16 21:45:05,446 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 21:45:58,292 - INFO - Orchestrator initialized
+2026-03-16 21:45:58,292 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 21:45:58,293 - INFO - No files in inbox
+2026-03-16 21:45:58,293 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 9}
+2026-03-16 21:45:58,295 - INFO - Dashboard updated
+2026-03-16 21:45:58,296 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 22:14:31,712 - INFO - Orchestrator initialized
+2026-03-16 22:14:31,712 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 22:14:31,713 - INFO - No files in inbox
+2026-03-16 22:14:31,715 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 9}
+2026-03-16 22:14:31,718 - INFO - Dashboard updated
+2026-03-16 22:14:31,718 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 22:15:16,869 - INFO - Orchestrator initialized
+2026-03-16 22:15:16,870 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 22:15:16,870 - INFO - Processing inbox file: test_cycle.txt
+2026-03-16 22:15:16,871 - INFO - Created action file: ACTION_test_cycle_2026-03-16_22-15-16.md
+2026-03-16 22:15:16,871 - INFO - Processed 1 inbox item(s)
+2026-03-16 22:15:16,873 - INFO - Current status: {'inbox': 1, 'needs_action': 3, 'pending_approval': 2, 'done': 9}
+2026-03-16 22:15:16,873 - INFO - Triggering Claude Code for task processing
+2026-03-16 22:15:16,879 - WARNING - Claude Code not available - manual processing required
+2026-03-16 22:15:16,882 - INFO - Dashboard updated
+2026-03-16 22:15:16,882 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 22:16:09,637 - INFO - Orchestrator initialized
+2026-03-16 22:16:09,638 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 22:16:09,639 - INFO - No files in inbox
+2026-03-16 22:16:09,642 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 10}
+2026-03-16 22:16:09,646 - INFO - Dashboard updated
+2026-03-16 22:16:09,647 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 22:58:14,623 - INFO - Orchestrator initialized
+2026-03-16 22:58:14,624 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 22:58:14,625 - INFO - Processing inbox file: PPC_Task.md.md
+2026-03-16 22:58:14,629 - INFO - Created action file: ACTION_PPC_Task.md_2026-03-16_22-58-14.md
+2026-03-16 22:58:14,629 - INFO - Processed 1 inbox item(s)
+2026-03-16 22:58:14,633 - INFO - Current status: {'inbox': 1, 'needs_action': 6, 'pending_approval': 2, 'done': 10}
+2026-03-16 22:58:14,633 - INFO - Triggering Claude Code for task processing
+2026-03-16 22:58:14,646 - WARNING - Claude Code not available - manual processing required
+2026-03-16 22:58:14,653 - INFO - Dashboard updated
+2026-03-16 22:58:14,653 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 23:27:56,958 - INFO - Orchestrator initialized
+2026-03-16 23:27:56,959 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 23:27:56,960 - INFO - No files in inbox
+2026-03-16 23:27:56,961 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 10}
+2026-03-16 23:27:56,965 - INFO - Dashboard updated
+2026-03-16 23:27:56,965 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 23:30:44,166 - INFO - Orchestrator initialized
+2026-03-16 23:30:44,167 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 23:30:44,167 - INFO - No files in inbox
+2026-03-16 23:30:44,168 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 10}
+2026-03-16 23:30:44,172 - INFO - Dashboard updated
+2026-03-16 23:30:44,173 - INFO - === Orchestration Cycle Complete ===
+2026-03-16 23:34:57,983 - INFO - Orchestrator initialized
+2026-03-16 23:34:57,984 - INFO - === Starting Orchestration Cycle ===
+2026-03-16 23:34:57,984 - INFO - No files in inbox
+2026-03-16 23:34:57,986 - INFO - Current status: {'inbox': 0, 'needs_action': 0, 'pending_approval': 2, 'done': 10}
+2026-03-16 23:34:57,989 - INFO - Dashboard updated
+2026-03-16 23:34:57,989 - INFO - === Orchestration Cycle Complete ===
