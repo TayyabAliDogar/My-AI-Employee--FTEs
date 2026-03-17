@@ -1,0 +1,21 @@
+{
+  "vault_path": "../../Vault",
+  "max_tasks_per_plan": 10,
+  "priority_rules": {
+    "urgent_keywords": ["urgent", "asap", "critical", "emergency", "important"],
+    "high_value_threshold": 1000,
+    "client_priority": true
+  },
+  "approval_rules": {
+    "financial_threshold": 500,
+    "external_communication": true,
+    "legal_documents": true,
+    "social_media_posts": true
+  },
+  "task_categories": {
+    "email": ["EMAIL_"],
+    "whatsapp": ["WHATSAPP_"],
+    "document": ["DOCUMENT_"],
+    "action": ["ACTION_"]
+  }
+}

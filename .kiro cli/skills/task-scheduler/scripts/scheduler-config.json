@@ -1,0 +1,45 @@
+{
+  "tasks": [
+    {
+      "name": "gmail-watcher",
+      "command": "cd ../gmail-watcher/scripts && python3 gmail-watcher.py --once",
+      "schedule": "*/5 * * * *",
+      "enabled": true,
+      "description": "Check Gmail for new emails every 5 minutes"
+    },
+    {
+      "name": "whatsapp-watcher",
+      "command": "cd ../whatsapp-watcher/scripts && python3 whatsapp-watcher.py --once",
+      "schedule": "*/10 * * * *",
+      "enabled": true,
+      "description": "Check WhatsApp for new messages every 10 minutes"
+    },
+    {
+      "name": "plan-creator",
+      "command": "cd ../plan-creator/scripts && python3 create-plan.py",
+      "schedule": "*/30 * * * *",
+      "enabled": true,
+      "description": "Generate execution plan every 30 minutes"
+    },
+    {
+      "name": "linkedin-post",
+      "command": "cd ../linkedin-automation/scripts && python3 linkedin-post.py --auto",
+      "schedule": "0 9 * * 1-5",
+      "enabled": false,
+      "description": "Post to LinkedIn daily at 9 AM (weekdays only)"
+    },
+    {
+      "name": "dashboard-update",
+      "command": "cd ../../Vault && python3 update-dashboard.py",
+      "schedule": "*/15 * * * *",
+      "enabled": true,
+      "description": "Update dashboard every 15 minutes"
+    }
+  ],
+  "timezone": "America/New_York",
+  "log_file": "../../Vault/Logs/scheduler.log",
+  "max_concurrent_tasks": 3,
+  "retry_on_failure": true,
+  "max_retries": 3,
+  "retry_delay": 300
+}

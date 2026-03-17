@@ -1,0 +1,23 @@
+{
+  "smtp_settings": {
+    "use_gmail_api": true,
+    "from_name": "Your Name",
+    "from_email": "you@example.com"
+  },
+  "approval_rules": {
+    "require_approval_for_external": true,
+    "auto_approve_internal": false,
+    "max_recipients": 10,
+    "require_approval_for_attachments": true
+  },
+  "rate_limits": {
+    "max_per_day": 100,
+    "max_per_hour": 10,
+    "cooldown_seconds": 60
+  },
+  "templates": {
+    "signature": "\n\nBest regards,\nYour Name\nYour Company",
+    "footer": "\n\n---\nThis email was sent via AI Employee"
+  },
+  "vault_path": "../../Vault"
+}

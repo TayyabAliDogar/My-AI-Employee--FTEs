@@ -1,0 +1,30 @@
+{
+  "vault_path": "../../Vault",
+  "check_interval": 60,
+  "max_results": 10,
+  "mark_as_read": false,
+  "categories": {
+    "urgent": ["urgent", "asap", "important", "critical", "emergency"],
+    "client": ["client", "customer", "proposal", "quote"],
+    "invoice": ["invoice", "payment", "bill", "receipt"],
+    "meeting": ["meeting", "schedule", "calendar", "appointment"],
+    "support": ["support", "help", "issue", "problem"]
+  },
+  "priority_senders": [
+    "@client-domain.com",
+    "boss@company.com",
+    "important@partner.com"
+  ],
+  "ignore_senders": [
+    "noreply@",
+    "no-reply@",
+    "notifications@",
+    "newsletter@",
+    "marketing@"
+  ],
+  "filter_labels": ["INBOX"],
+  "keywords": {
+    "urgent": ["urgent", "asap", "critical", "emergency"],
+    "ignore": ["newsletter", "unsubscribe", "promotional"]
+  }
+}

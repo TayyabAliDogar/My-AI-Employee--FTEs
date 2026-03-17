@@ -1,0 +1,21 @@
+{
+  "vault_path": "../../Vault",
+  "check_interval": 30,
+  "priority_contacts": [
+    "Client Name",
+    "Boss Name",
+    "+1234567890"
+  ],
+  "ignore_groups": [
+    "Family Group",
+    "Friends Group",
+    "Spam Group"
+  ],
+  "keywords": {
+    "urgent": ["urgent", "asap", "emergency", "critical", "important"],
+    "business": ["invoice", "payment", "contract", "proposal", "quote"]
+  },
+  "auto_mark_read": false,
+  "save_media": false,
+  "max_messages_per_check": 20
+}

@@ -1,0 +1,25 @@
+{
+  "email": "your-email@example.com",
+  "vault_path": "../../Vault",
+  "posting_schedule": {
+    "frequency": "daily",
+    "time": "09:00",
+    "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+  },
+  "content_themes": [
+    "industry_insights",
+    "company_updates",
+    "case_studies",
+    "tips_and_tricks",
+    "thought_leadership"
+  ],
+  "auto_hashtags": true,
+  "max_hashtags": 5,
+  "require_approval": true,
+  "save_drafts": true,
+  "default_hashtags": [
+    "#Business",
+    "#Entrepreneurship",
+    "#Innovation"
+  ]
+}

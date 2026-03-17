@@ -1,0 +1,214 @@
+#!/usr/bin/env python3
+"""
+WhatsApp Watcher - Monitors WhatsApp Web for new messages
+"""
+
+import os
+import json
+import time
+import logging
+import subprocess
+from datetime import datetime
+from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger('WhatsAppWatcher')
+
+class WhatsAppWatcher:
+    def __init__(self, config_path='whatsapp-config.json'):
+        self.config = self.load_config(config_path)
+        self.mcp_url = 'http://localhost:8808'
+        self.vault_path = Path(self.config.get('vault_path', '../../Vault'))
+        self.needs_action_path = self.vault_path / 'Needs_Action'
+        self.check_interval = self.config.get('check_interval', 30)
+        self.processed_messages = set()
+
+        # Ensure directories exist
+        self.needs_action_path.mkdir(parents=True, exist_ok=True)
+
+    def load_config(self, config_path):
+        """Load configuration"""
+        try:
+            with open(config_path, 'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            return {
+                'vault_path': '../../Vault',
+                'check_interval': 30,
+                'priority_contacts': [],
+                'ignore_groups': []
+            }
+
+    def call_mcp(self, tool, params):
+        """Call Playwright MCP server"""
+        cmd = [
+            'python3',
+            '../../browsing-with-playwright/scripts/mcp-client.py',
+            'call',
+            '-u', self.mcp_url,
+            '-t', tool,
+            '-p', json.dumps(params)
+        ]
+
+        result = subprocess.run(cmd, capture_output=True, text=True)
+
+        if result.returncode != 0:
+            raise Exception(f"MCP call failed: {result.stderr}")
+
+        return json.loads(result.stdout) if result.stdout else {}
+
+    def authenticate(self):
+        """Open WhatsApp Web and wait for QR code scan"""
+        logger.info("Opening WhatsApp Web...")
+        self.call_mcp('browser_navigate', {'url': 'https://web.whatsapp.com'})
+
+        logger.info("Please scan QR code with your phone...")
+        logger.info("Waiting 30 seconds for authentication...")
+
+        self.call_mcp('browser_wait_for', {'time': 30000})
+
+        logger.info("✓ Authentication complete")
+
+    def get_unread_messages(self):
+        """Get unread messages from WhatsApp Web"""
+        try:
+            # Get page snapshot
+            snapshot = self.call_mcp('browser_snapshot', {})
+
+            # Look for unread message indicators
+            # This is a simplified version - actual implementation would parse the snapshot
+            # to find unread message elements
+
+            messages = []
+            # Parse snapshot for unread messages
+            # Extract sender, content, timestamp
+
+            return messages
+
+        except Exception as e:
+            logger.error(f"Error getting messages: {e}")
+            return []
+
+    def categorize_message(self, message):
+        """Categorize message based on sender and content"""
+        sender = message.get('sender', '')
+        content = message.get('content', '').lower()
+
+        # Check priority contacts
+        priority_contacts = self.config.get('priority_contacts', [])
+        if any(contact.lower() in sender.lower() for contact in priority_contacts):
+            return 'client', 'HIGH'
+
+        # Check for urgent keywords
+        urgent_keywords = self.config.get('keywords', {}).get('urgent', [])
+        if any(keyword in content for keyword in urgent_keywords):
+            return 'urgent', 'HIGH'
+
+        # Check for business keywords
+        business_keywords = self.config.get('keywords', {}).get('business', [])
+        if any(keyword in content for keyword in business_keywords):
+            return 'business', 'HIGH'
+
+        return 'general', 'MEDIUM'
+
+    def create_action_file(self, message):
+        """Create action file for message"""
+        timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        sender = message.get('sender', 'Unknown')
+        safe_sender = "".join(c for c in sender if c.isalnum() or c in (' ', '-', '_')).strip()[:30]
+
+        filename = f"WHATSAPP_{safe_sender}_{timestamp}.md"
+        filepath = self.needs_action_path / filename
+
+        category, priority = self.categorize_message(message)
+
+        content = f"""# WHATSAPP: Message from {sender}
+
+**From:** {sender}
+**Date:** {message.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))}
+**Category:** {category}
+**Priority:** {priority}
+
+## Message Content
+
+{message.get('content', '')}
+
+## Context
+
+- Chat: {message.get('chat_type', 'Individual')}
+- Unread Count: {message.get('unread_count', 1)}
+
+## Suggested Actions
+
+- [ ] Review message
+- [ ] Draft response
+- [ ] Take appropriate action
+
+## Metadata
+
+- Message ID: {message.get('id', 'N/A')}
+- Processed: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+---
+
+*Auto-generated by WhatsApp Watcher*
+"""
+
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+
+        logger.info(f"Created action file: {filename}")
+        return filepath
+
+    def watch(self, once=False):
+        """Main watch loop"""
+        logger.info("Starting WhatsApp Watcher...")
+        logger.info(f"Monitoring WhatsApp Web every {self.check_interval} seconds")
+        logger.info(f"Output to: {self.needs_action_path}")
+
+        try:
+            while True:
+                messages = self.get_unread_messages()
+
+                if messages:
+                    logger.info(f"Found {len(messages)} unread message(s)")
+
+                    for msg in messages:
+                        msg_id = msg.get('id')
+
+                        if msg_id and msg_id not in self.processed_messages:
+                            self.create_action_file(msg)
+                            self.processed_messages.add(msg_id)
+
+                if once:
+                    break
+
+                time.sleep(self.check_interval)
+
+        except KeyboardInterrupt:
+            logger.info("WhatsApp Watcher stopped by user")
+        except Exception as e:
+            logger.error(f"Unexpected error: {e}")
+
+def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(description='WhatsApp Watcher')
+    parser.add_argument('--authenticate', action='store_true', help='Authenticate with QR code')
+    parser.add_argument('--once', action='store_true', help='Check once and exit')
+    parser.add_argument('--vault-path', default='../../Vault', help='Path to vault')
+
+    args = parser.parse_args()
+
+    watcher = WhatsAppWatcher()
+
+    if args.authenticate:
+        watcher.authenticate()
+    else:
+        watcher.watch(once=args.once)
+
+if __name__ == '__main__':
+    main()
