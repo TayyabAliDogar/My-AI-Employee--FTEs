@@ -1,0 +1,156 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database for Odoo
+  db:
+    image: postgres:15
+    container_name: odoo_postgres
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=postgres
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    networks:
+      - odoo-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Odoo 19 Application
+  odoo:
+    image: odoo:19
+    container_name: odoo_app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - PORT=5432
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./odoo-config:/etc/odoo
+      - ./odoo-addons:/mnt/extra-addons
+    networks:
+      - odoo-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8069/web/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # Gmail Watcher
+  gmail-watcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    container_name: gmail_watcher
+    environment:
+      - WATCHER_TYPE=gmail
+    volumes:
+      - ./.kiro cli/skills/gmail-watcher:/app/watcher
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+  # Instagram Watcher
+  instagram-watcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    container_name: instagram_watcher
+    environment:
+      - WATCHER_TYPE=instagram
+    volumes:
+      - ./.kiro cli/skills/instagram-watcher:/app/watcher
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+  # Facebook Watcher
+  facebook-watcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    container_name: facebook_watcher
+    environment:
+      - WATCHER_TYPE=facebook
+    volumes:
+      - ./.kiro cli/skills/facebook-integration:/app/watcher
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+  # Twitter Watcher
+  twitter-watcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    container_name: twitter_watcher
+    environment:
+      - WATCHER_TYPE=twitter
+    volumes:
+      - ./.kiro cli/skills/twitter-integration:/app/watcher
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+  # LinkedIn Watcher
+  linkedin-watcher:
+    build:
+      context: .
+      dockerfile: Dockerfile.watcher
+    container_name: linkedin_watcher
+    environment:
+      - WATCHER_TYPE=linkedin
+    volumes:
+      - ./.kiro cli/skills/linkedin-automation:/app/watcher
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+  # CEO Briefing Generator (Scheduled)
+  ceo-briefing:
+    build:
+      context: .
+      dockerfile: Dockerfile.briefing
+    container_name: ceo_briefing
+    environment:
+      - SCHEDULE=0 8 * * 1
+    volumes:
+      - ./.kiro cli/skills/ceo-briefing:/app/briefing
+      - ./.kiro cli/skills/odoo-mcp-server:/app/odoo-mcp
+      - ./Vault:/app/Vault
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    depends_on:
+      - odoo
+
+networks:
+  odoo-network:
+    driver: bridge
+
+volumes:
+  odoo-db-data:
+    driver: local
+  odoo-web-data:
+    driver: local

@@ -1,0 +1,49 @@
+{
+  "check_interval": 300,
+  "monitor_mentions": true,
+  "monitor_dms": true,
+  "priority_keywords": [
+    "urgent",
+    "asap",
+    "important",
+    "help",
+    "emergency"
+  ],
+  "categories": {
+    "customer_inquiry": [
+      "price",
+      "cost",
+      "buy",
+      "purchase",
+      "order"
+    ],
+    "support": [
+      "help",
+      "issue",
+      "problem",
+      "not working",
+      "error"
+    ],
+    "feedback": [
+      "love",
+      "great",
+      "amazing",
+      "terrible",
+      "bad"
+    ],
+    "lead": [
+      "interested",
+      "more info",
+      "contact",
+      "quote"
+    ]
+  },
+  "track_keywords": [],
+  "auto_reply": false,
+  "reply_templates": {
+    "customer_inquiry": "Thank you for your inquiry! We'll get back to you shortly.",
+    "support": "We're sorry to hear you're having issues. Our team will assist you soon.",
+    "feedback": "Thank you for your feedback! We appreciate it.",
+    "lead": "Thank you for your interest! We'll be in touch soon."
+  }
+}

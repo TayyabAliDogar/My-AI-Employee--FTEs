@@ -1,0 +1,47 @@
+# Environment variables (NEVER COMMIT)
+.env
+.env.local
+
+# OAuth tokens and credentials
+token.json
+credentials.json
+*.token
+
+# Log files
+*.log
+logs/
+Vault/Logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vault action files (optional - uncomment if you don't want to track these)
+# Vault/Needs_Action/
+# Vault/In_Progress/
+# Vault/Done/
+
+# Odoo
+odoo-web-data/
+odoo-db-data/

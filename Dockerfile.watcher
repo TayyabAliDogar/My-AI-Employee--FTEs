@@ -1,0 +1,34 @@
+# Use Python 3.11 slim image
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    requests \
+    python-dotenv \
+    google-auth \
+    google-auth-oauthlib \
+    google-auth-httplib2 \
+    google-api-python-client
+
+# Copy watcher scripts
+COPY [".kiro cli/skills", "/app/skills"]
+
+# Create Vault directory
+RUN mkdir -p /app/Vault/Needs_Action /app/Vault/Done /app/Vault/Logs
+
+# Set environment variable for watcher type
+ENV WATCHER_TYPE=""
+
+# Entry point script
+COPY docker-entrypoint-watcher.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

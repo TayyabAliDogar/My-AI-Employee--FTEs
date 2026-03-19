@@ -1,0 +1,32 @@
+# Use Python 3.11 slim image
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies including cron
+RUN apt-get update && apt-get install -y \
+    cron \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    requests \
+    python-dotenv
+
+# Copy briefing and odoo-mcp scripts
+COPY [".kiro cli/skills/ceo-briefing", "/app/briefing"]
+COPY [".kiro cli/skills/odoo-mcp-server", "/app/odoo-mcp"]
+
+# Create Vault directory
+RUN mkdir -p /app/Vault/CEO_Briefings /app/Vault/Needs_Action /app/Vault/Done /app/Vault/Logs
+
+# Set up cron job (default: Monday 8 AM)
+ENV SCHEDULE="0 8 * * 1"
+
+# Entry point script
+COPY docker-entrypoint-briefing.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
