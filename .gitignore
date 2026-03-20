@@ -45,3 +45,12 @@ Thumbs.db
 # Odoo
 odoo-web-data/
 odoo-db-data/
+
+# Additional security patterns
+token.json
+*token.json
+credentials.json
+*credentials.json
+cred.json
+secrets.py
+config.local
